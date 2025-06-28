@@ -101,9 +101,9 @@ export function FAQ() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-4 text-gray-600 dark:text-gray-300"
+                    className="mt-4 text-gray-700 dark:text-gray-300"
                   >
-                    {faq.answer}
+                    <p>{faq.answer}</p>
                   </motion.div>
                 )}
               </button>
@@ -118,7 +118,7 @@ export function FAQ() {
           className="mt-12 text-center"
         >
           <p className="text-gray-600 dark:text-gray-300">
-            Still have questions? We're here to help.
+            Still have questions? We&apos;re here to help.
           </p>
           <a
             href="/contact"
@@ -130,4 +130,4 @@ export function FAQ() {
       </div>
     </section>
   )
-} 
+}

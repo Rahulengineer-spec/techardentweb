@@ -7,12 +7,8 @@ import {
   Palette, 
   Smartphone, 
   Globe, 
-  Server, 
-  Shield,
   Zap,
-  Users,
-  BarChart,
-  MessageSquare
+  BarChart
 } from "lucide-react"
 
 interface Service {
@@ -122,4 +118,4 @@ export function ServiceList() {
       ))}
     </div>
   )
-} 
+}

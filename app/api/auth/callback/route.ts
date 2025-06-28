@@ -3,7 +3,13 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url)
+  const { searchParams } = new URL(request.url)
+  let origin: string
+  try {
+    origin = new URL(request.url).origin
+  } catch {
+    origin = process.env.NEXT_PUBLIC_SITE_URL || ''
+  }
   const code = searchParams.get('code')
   // if "next" is in param, use it as the redirect URL
   const next = searchParams.get('next') ?? '/'

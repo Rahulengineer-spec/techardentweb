@@ -2,71 +2,54 @@
 
 import { motion } from 'framer-motion'
 import { useTheme } from '@/context/ThemeContext'
+import { SunIcon, MoonIcon, DesktopIcon } from '@radix-ui/react-icons' // Using Radix icons for a consistent look
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, setTheme, effectiveTheme } = useTheme()
+
+  const themes = [
+    { name: 'light', icon: <SunIcon className="w-5 h-5" /> },
+    { name: 'dark', icon: <MoonIcon className="w-5 h-5" /> },
+    { name: 'system', icon: <DesktopIcon className="w-5 h-5" /> },
+  ] as const;
 
   return (
-    <motion.button
-      onClick={toggleTheme}
-      className="relative w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <motion.div
-        className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white dark:bg-gray-200"
-        animate={{
-          x: theme === 'dark' ? 24 : 0,
-          backgroundColor: theme === 'dark' ? '#e5e7eb' : '#ffffff'
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 30
-        }}
-      />
-      
-      {/* Sun Icon */}
-      <motion.svg
-        className="absolute top-1 left-1 w-4 h-4 text-yellow-500"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        animate={{
-          opacity: theme === 'dark' ? 0 : 1,
-          scale: theme === 'dark' ? 0 : 1
-        }}
-      >
-        <circle cx="12" cy="12" r="5" />
-        <line x1="12" y1="1" x2="12" y2="3" />
-        <line x1="12" y1="21" x2="12" y2="23" />
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-        <line x1="1" y1="12" x2="3" y2="12" />
-        <line x1="21" y1="12" x2="23" y2="12" />
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-      </motion.svg>
-
-      {/* Moon Icon */}
-      <motion.svg
-        className="absolute top-1 right-1 w-4 h-4 text-blue-500"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        animate={{
-          opacity: theme === 'dark' ? 1 : 0,
-          scale: theme === 'dark' ? 1 : 0
-        }}
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </motion.svg>
-    </motion.button>
+    <div className="flex space-x-1 rounded-full bg-gray-200 dark:bg-gray-800 p-1">
+      {themes.map((t) => (
+        <motion.button
+          key={t.name}
+          onClick={() => setTheme(t.name)}
+          className={`relative p-2 rounded-full transition-colors focus:outline-none 
+            ${theme === t.name 
+              ? 'bg-white dark:bg-gray-700' 
+              : 'hover:bg-gray-300 dark:hover:bg-gray-700'
+            }
+          `}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className={`
+            ${theme === t.name 
+              ? (effectiveTheme === 'dark' ? 'text-blue-500' : 'text-yellow-600') 
+              : (effectiveTheme === 'dark' ? 'text-gray-400' : 'text-gray-500')
+            }
+            ${t.name === 'system' && theme === 'system' 
+              ? (effectiveTheme === 'dark' ? 'text-blue-400' : 'text-purple-600') 
+              : ''
+            }
+          `}>
+            {t.icon}
+          </span>
+          {theme === t.name && (
+            <motion.div
+              layoutId="activeThemePill"
+              className="absolute inset-0 rounded-full bg-white dark:bg-gray-600 mix-blend-difference"
+              style={{ borderRadius: 9999 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            />
+          )}
+        </motion.button>
+      ))}
+    </div>
   )
-} 
+}

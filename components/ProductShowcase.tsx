@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Container, Section } from './Layout'
 import { FadeIn, HoverScale } from './Animations'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 const products = [
   {
@@ -71,9 +72,11 @@ export function ProductShowcase() {
               <div className="w-full lg:w-1/2">
                 <div className="relative aspect-video rounded-2xl overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-50`} />
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.title}
+                    width={500}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -114,4 +117,4 @@ export function ProductShowcase() {
       </Container>
     </Section>
   )
-} 
+}

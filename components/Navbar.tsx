@@ -167,6 +167,9 @@ export function Navbar() {
               <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 block px-3 py-2 rounded-md text-base font-medium">
                 Contact
               </Link>
+              <div className="pt-2 pb-1 border-t border-gray-200 dark:border-gray-700">
+                <ThemeToggle />
+              </div>
               {user ? (
                 <>
                   {/* <Link href="/dashboard" className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 block px-3 py-2 rounded-md text-base font-medium">Dashboard</Link> */}

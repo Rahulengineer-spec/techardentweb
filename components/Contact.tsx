@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Container, Section } from './Layout'
-import { FadeIn, HoverScale } from './Animations'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import React, { useState } from 'react'; // Removed useEffect
+import { Mail, Phone, MapPin, Send } from 'lucide-react'; // Removed CheckCircle, AlertCircle
+// import { supabase } from '@/lib/supabase';
+import { Container } from '@/components/Container';
+import { Section } from '@/components/Section';
+import { FadeIn, HoverScale } from '@/components/Animations';
 
 const contactInfo = [
   {
@@ -73,7 +73,7 @@ export function Contact() {
   }
 
   return (
-    <Section className="bg-gray-900" id="contact">
+    <Section className="bg-gray-900">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
@@ -85,8 +85,8 @@ export function Contact() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <p className="text-gray-400 mb-8">
-                Ready to start your next project? We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible.
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                We&apos;d love to hear from you! Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.
               </p>
             </FadeIn>
 
@@ -177,7 +177,7 @@ export function Contact() {
               {status === 'success' && (
                 <FadeIn>
                   <div className="text-green-400 text-sm">
-                    Message sent successfully! We'll get back to you soon.
+                    Message sent successfully! We&apos;ll get back to you soon.
                   </div>
                 </FadeIn>
               )}
@@ -250,4 +250,4 @@ export function Contact() {
       </Container>
     </Section>
   )
-} 
+}

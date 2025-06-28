@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '../components/ThemeProvider'
+import { ThemeProvider } from '@/context/ThemeContext' // Corrected import path
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import './globals.css'
@@ -71,12 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <Navigation />
           {children}
           <Footer />

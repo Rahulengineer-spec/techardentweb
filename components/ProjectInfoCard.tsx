@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 interface ProjectInfoCardProps {
   title: string
@@ -32,10 +33,12 @@ export function ProjectInfoCard({
       <Card className="w-full overflow-hidden hover:shadow-lg transition-shadow duration-300">
         {imageUrl && (
           <div className="relative h-48 w-full">
-            <img
+            <Image
               src={imageUrl}
               alt={title}
-              className="object-cover w-full h-full"
+              layout="fill"
+              objectFit="cover"
+              className="transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         )}
@@ -81,4 +84,4 @@ export function ProjectInfoCard({
       </Card>
     </motion.div>
   )
-} 
+}

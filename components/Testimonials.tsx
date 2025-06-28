@@ -1,10 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { FadeIn, SlideIn, StaggerContainer, StaggerChild } from './Animations'
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { FadeIn, StaggerChild, StaggerContainer } from './Animations';
 
 const testimonials = [
   {
+    id: 1,
     name: 'Sarah Chen',
     role: 'Product Manager',
     company: 'TechCorp',
@@ -13,6 +16,7 @@ const testimonials = [
     rating: 5
   },
   {
+    id: 2,
     name: 'Michael Rodriguez',
     role: 'Lead Developer',
     company: 'DevFlow',
@@ -21,6 +25,7 @@ const testimonials = [
     rating: 5
   },
   {
+    id: 3,
     name: 'Emma Thompson',
     role: 'UX Designer',
     company: 'DesignHub',
@@ -45,78 +50,42 @@ export function Testimonials() {
           </div>
         </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <StaggerChild key={testimonial.name}>
-              <motion.div
-                className="relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-                whileHover={{ y: -5 }}
-              >
-                {/* Floating Quote Icon */}
-                <motion.div
-                  className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full flex items-center justify-center text-white"
-                  animate={{
-                    y: [0, -5, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                </motion.div>
+        <StaggerContainer>
+          {testimonials.map((testimonial) => (
+            <StaggerChild key={testimonial.id}>
+              <FadeIn>
+                <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl h-full flex flex-col">
+                  <div className="flex items-center mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.368-2.448a1 1 0 00-1.176 0l-3.368 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"></path></svg>
+                    ))}
+                  </div>
 
-                {/* Rating Stars */}
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <motion.svg
-                      key={i}
-                      className="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </motion.svg>
-                  ))}
-                </div>
+                  {/* Quote */}
+                  <p className="text-gray-600 dark:text-gray-400 mb-6">
+                    {testimonial.quote}
+                  </p>
 
-                {/* Quote */}
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  {testimonial.quote}
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center">
-                  <motion.div
-                    className="relative w-12 h-12 rounded-full overflow-hidden mr-4"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <img
+                  {/* Author */}
+                  <div className="flex items-center mb-2">
+                    <Image
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-full h-full object-cover"
+                      width={48}
+                      height={48}
+                      className="rounded-full mr-4"
                     />
-                  </motion.div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {testimonial.role} at {testimonial.company}
-                    </p>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {testimonial.role} at {testimonial.company}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </FadeIn>
             </StaggerChild>
           ))}
         </StaggerContainer>
@@ -148,4 +117,4 @@ export function Testimonials() {
       </div>
     </section>
   )
-} 
+}

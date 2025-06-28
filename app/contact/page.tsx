@@ -66,7 +66,7 @@ export default function ContactPage() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-xl text-gray-400 mb-8">
-                Have questions? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+                Have questions? We&apos;re here to help. Reach out to our team and we&apos;ll get back to you as soon as possible.
               </p>
             </FadeIn>
           </div>
@@ -217,4 +217,4 @@ export default function ContactPage() {
       </Section>
     </main>
   )
-} 
+}

@@ -134,7 +134,7 @@ export default function FeaturesPage() {
       {/* Features Grid */}
       <Section className="bg-black">
         <Container>
-          {features.map((category, categoryIndex) => (
+          {features.map((category) => (
             <div key={category.category} className="mb-16">
               <FadeIn>
                 <h2 className="text-2xl md:text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
@@ -202,4 +202,4 @@ export default function FeaturesPage() {
       </Section>
     </main>
   )
-} 
+}

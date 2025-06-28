@@ -30,7 +30,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-400 mb-4">
-                  By accessing and using TechArdent's services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services.
+                  By accessing and using TechArdent&apos;s services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services.
                 </p>
               </section>
             </FadeIn>
@@ -71,7 +71,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">4. Disclaimer</h2>
                 <p className="text-gray-400 mb-4">
-                  The materials on TechArdent's services are provided on an 'as is' basis. TechArdent makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                  The materials on TechArdent&apos;s services are provided on an &apos;as is&apos; basis. TechArdent makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
                 </p>
               </section>
             </FadeIn>
@@ -80,7 +80,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">5. Limitations</h2>
                 <p className="text-gray-400 mb-4">
-                  In no event shall TechArdent or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TechArdent's services, even if TechArdent or a TechArdent authorized representative has been notified orally or in writing of the possibility of such damage.
+                  In no event shall TechArdent or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TechArdent&apos;s services, even if TechArdent or a TechArdent authorized representative has been notified orally or in writing of the possibility of such damage.
                 </p>
               </section>
             </FadeIn>
@@ -89,7 +89,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">6. Revisions and Errata</h2>
                 <p className="text-gray-400 mb-4">
-                  The materials appearing on TechArdent's services could include technical, typographical, or photographic errors. TechArdent does not warrant that any of the materials on its services are accurate, complete, or current. TechArdent may make changes to the materials contained on its services at any time without notice.
+                  The materials appearing on TechArdent&apos;s services could include technical, typographical, or photographic errors. TechArdent does not warrant that any of the materials on its services are accurate, complete, or current. TechArdent may make changes to the materials contained on its services at any time without notice.
                 </p>
               </section>
             </FadeIn>
@@ -111,4 +111,4 @@ export default function TermsPage() {
       </Section>
     </main>
   )
-} 
+}

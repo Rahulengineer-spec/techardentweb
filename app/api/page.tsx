@@ -132,7 +132,7 @@ export default function ApiPage() {
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                     {endpoints.map((endpoint) => (
-                      <tr key={endpoint.path}>
+                      <tr key={endpoint.method + '-' + endpoint.path}>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span
                             className={`px-2 py-1 text-xs font-semibold rounded ${
@@ -217,4 +217,4 @@ const users = await response.json();`}</code>
       </Section>
     </Container>
   )
-} 
+}

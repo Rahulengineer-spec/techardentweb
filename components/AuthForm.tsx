@@ -23,11 +23,18 @@ export default function AuthForm({ mode }: AuthFormProps) {
     setMessage(null);
 
     if (mode === "signup") {
+      // Get origin for redirect (browser or env fallback)
+      let origin = '';
+      if (typeof window !== 'undefined') {
+        origin = window.location.origin;
+      } else if (process.env.NEXT_PUBLIC_SITE_URL) {
+        origin = process.env.NEXT_PUBLIC_SITE_URL;
+      }
       const { error: signUpError } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${location.origin}/api/auth/callback`,
+          emailRedirectTo: origin ? `${origin}/api/auth/callback` : undefined,
         },
       });
       if (signUpError) {

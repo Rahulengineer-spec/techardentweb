@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Container, Section } from './Layout'
-import { FadeIn, HoverScale, StaggerContainer, StaggerChild } from './Animations'
+import { FadeIn, StaggerContainer, StaggerChild } from './Animations'
 import { OptimizedImage } from './OptimizedImage'
-import { focusStyles } from '@/lib/accessibility'
 
 const portfolioItems = [
   {
@@ -133,4 +132,4 @@ export function PortfolioCards() {
       </Container>
     </Section>
   )
-} 
+}
