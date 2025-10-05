@@ -7,7 +7,6 @@ import { ChevronDown, Menu, X, Heart } from 'lucide-react'
 const productLinks = [
   { name: 'Overview', href: '/products' },
   { name: 'Features', href: '/features' },
-  { name: 'Pricing', href: '/pricing' },
   { name: 'Enterprise', href: '/enterprise' },
   { name: 'Changelog', href: '/changelog' },
 ]

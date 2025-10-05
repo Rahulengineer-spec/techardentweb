@@ -5,7 +5,9 @@ import { Users, Target, Award, Heart } from 'lucide-react'
 import { AnimatedCounter } from '@/components/AnimatedCounter'
 
 const stats = [
-	{ label: 'Team Members', value: '12+' },
+	{ label: 'Active Users', value: '10000+' },
+	{ label: 'Teams', value: '12+' },
+	{ label: 'Team Members', value: '20+' },
 	{ label: 'Projects', value: '30+' },
 ]
 
@@ -103,17 +105,17 @@ export default function AboutPage() {
 							<div className="grid md:grid-cols-3 gap-8">
 								{[
 									{
-										name: 'John Doe',
+										name: 'Rahul Choudhary',
 										role: 'CEO & Founder',
-										bio: 'Visionary leader with 15+ years of experience in technology and business.',
+										bio: 'Visionary leader with 3+ years of experience in technology and business.',
 									},
 									{
-										name: 'Jane Smith',
+										name: 'Rahul Choudhary',
 										role: 'CTO',
 										bio: 'Technical expert specializing in cloud architecture and AI solutions.',
 									},
 									{
-										name: 'Mike Johnson',
+										name: 'Rahul Choudhary',
 										role: 'COO',
 										bio: 'Operations specialist focused on scaling businesses and optimizing processes.',
 									},
