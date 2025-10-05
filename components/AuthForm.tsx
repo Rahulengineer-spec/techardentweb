@@ -1,6 +1,5 @@
 "use client";
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
@@ -15,47 +14,56 @@ export default function AuthForm({ mode }: AuthFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const router = useRouter();
-  const supabase = createClientComponentClient();
 
   const handleAuth = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setMessage(null);
 
+    // DEMO MODE: Accept any credentials, show success message, and redirect
     if (mode === "signup") {
-      // Get origin for redirect (browser or env fallback)
-      let origin = '';
-      if (typeof window !== 'undefined') {
-        origin = window.location.origin;
-      } else if (process.env.NEXT_PUBLIC_SITE_URL) {
-        origin = process.env.NEXT_PUBLIC_SITE_URL;
-      }
-      const { error: signUpError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: origin ? `${origin}/api/auth/callback` : undefined,
-        },
-      });
-      if (signUpError) {
-        setError(signUpError.message);
-      } else {
-        setMessage("Check your email for the confirmation link!");
-        // Optionally, redirect or clear form
-        // router.push('/some-page-after-signup');
-      }
+      setMessage("Demo: Account created! You can now log in.");
+      setEmail("");
+      setPassword("");
     } else {
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (signInError) {
-        setError(signInError.message);
-      } else {
-        router.push("/"); // Redirect to homepage or dashboard after login
-        router.refresh(); // Refresh the page to update auth state
-      }
+      setMessage("Demo: Login successful! Redirecting to homepage...");
+      setTimeout(() => {
+        router.push("/");
+        router.refresh();
+      }, 1200);
     }
+    // Uncomment below for real Supabase logic
+    // if (mode === "signup") {
+    //   let origin = '';
+    //   if (typeof window !== 'undefined') {
+    //     origin = window.location.origin;
+    //   } else if (process.env.NEXT_PUBLIC_SITE_URL) {
+    //     origin = process.env.NEXT_PUBLIC_SITE_URL;
+    //   }
+    //   const { error: signUpError } = await supabase.auth.signUp({
+    //     email,
+    //     password,
+    //     options: {
+    //       emailRedirectTo: origin ? `${origin}/api/auth/callback` : undefined,
+    //     },
+    //   });
+    //   if (signUpError) {
+    //     setError(signUpError.message);
+    //   } else {
+    //     setMessage("Check your email for the confirmation link!");
+    //   }
+    // } else {
+    //   const { error: signInError } = await supabase.auth.signInWithPassword({
+    //     email,
+    //     password,
+    //   });
+    //   if (signInError) {
+    //     setError(signInError.message);
+    //   } else {
+    //     router.push("/");
+    //     router.refresh();
+    //   }
+    // }
   };
 
   return (

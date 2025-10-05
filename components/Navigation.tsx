@@ -32,13 +32,9 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
-  const toggleDropdown = (name: string) => {
-    setActiveDropdown(activeDropdown === name ? null : name)
-  }
-
-  const closeDropdown = () => {
-    setActiveDropdown(null)
-  }
+  // Dropdown opens on mouse enter, closes on mouse leave
+  const openDropdown = (name: string) => setActiveDropdown(name)
+  const closeDropdown = () => setActiveDropdown(null)
 
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
@@ -55,10 +51,13 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {/* Product Dropdown */}
-            <div className="relative">
+            <div className="relative"
+              onMouseEnter={() => openDropdown('product')}
+              onMouseLeave={closeDropdown}
+            >
               <button
-                onClick={() => toggleDropdown('product')}
                 className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                tabIndex={0}
               >
                 Product
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -82,10 +81,13 @@ export function Navigation() {
             </div>
 
             {/* Resources Dropdown */}
-            <div className="relative">
+            <div className="relative"
+              onMouseEnter={() => openDropdown('resources')}
+              onMouseLeave={closeDropdown}
+            >
               <button
-                onClick={() => toggleDropdown('resources')}
                 className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                tabIndex={0}
               >
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -109,10 +111,13 @@ export function Navigation() {
             </div>
 
             {/* Company Dropdown */}
-            <div className="relative">
+            <div className="relative"
+              onMouseEnter={() => openDropdown('company')}
+              onMouseLeave={closeDropdown}
+            >
               <button
-                onClick={() => toggleDropdown('company')}
                 className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                tabIndex={0}
               >
                 Company
                 <ChevronDown className="ml-1 h-4 w-4" />

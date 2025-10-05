@@ -12,43 +12,43 @@ import {
 
 const offices = [
   {
-    city: 'San Francisco',
-    address: '123 Tech Street, San Francisco, CA 94105',
-    phone: '+1 (415) 555-0123',
-    email: 'sf@techardent.com',
-    hours: 'Mon-Fri, 9:00 AM - 6:00 PM PST'
+    city: 'Delhi - Adarsh Nagar',
+    address: 'Adarsh Nagar, New Delhi, DL 110033',
+    phone: '+91 9818490248',
+    email: 'adarshnagar@techardent.com',
+    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST'
   },
   {
-    city: 'New York',
-    address: '456 Innovation Ave, New York, NY 10001',
-    phone: '+1 (212) 555-0123',
-    email: 'ny@techardent.com',
-    hours: 'Mon-Fri, 9:00 AM - 6:00 PM EST'
+    city: 'Delhi - Shalimar Bagh',
+    address: 'Shalimar Bagh, New Delhi, DL 110088',
+    phone: '+91 9818000001',
+    email: 'shalimarbagh@techardent.com',
+    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST'
   },
   {
-    city: 'London',
-    address: '789 Digital Lane, London, UK EC2A 4NE',
-    phone: '+44 20 7123 4567',
-    email: 'london@techardent.com',
-    hours: 'Mon-Fri, 9:00 AM - 6:00 PM GMT'
+    city: 'Delhi - Pitampura',
+    address: 'Pitampura, New Delhi, DL 110034',
+    phone: '+91 9818000002',
+    email: 'pitampura@techardent.com',
+    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST'
   }
 ]
 
 const departments = [
   {
     name: 'Sales',
-    email: 'sales@techardent.com',
-    phone: '+1 (415) 555-0124'
+    email: 'sales.in@techardent.com',
+    phone: '+91 90000 11122'
   },
   {
     name: 'Support',
-    email: 'support@techardent.com',
-    phone: '+1 (415) 555-0125'
+    email: 'support.in@techardent.com',
+    phone: '+91 90000 22233'
   },
   {
     name: 'Partnerships',
-    email: 'partners@techardent.com',
-    phone: '+1 (415) 555-0126'
+    email: 'partners.in@techardent.com',
+    phone: '+91 90000 33344'
   }
 ]
 
