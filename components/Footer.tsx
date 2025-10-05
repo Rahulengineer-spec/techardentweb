@@ -7,7 +7,6 @@ import { FadeIn } from './Animations'
 const footerLinks = {
   product: [
     { name: 'Features', href: '/features' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'Changelog', href: '/changelog' },
     { name: 'Documentation', href: '/docs' },
     { name: 'API', href: '/api' },

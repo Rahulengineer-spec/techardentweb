@@ -123,10 +123,10 @@ export default function ProductsPage() {
                 View Documentation
               </a>
               <a
-                href="/pricing"
-                className="bg-white dark:bg-gray-800 text-purple-600 px-6 py-3 rounded-lg font-semibold border border-purple-600 hover:bg-purple-50 dark:hover:bg-gray-700 transition-colors"
-              >
-                See Pricing
+                  href="/contact"
+                  className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+                >
+                  Contact Sales
               </a>
             </div>
           </div>

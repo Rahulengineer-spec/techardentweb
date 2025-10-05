@@ -22,7 +22,7 @@ const blogPosts = [
     date: 'March 15, 2024',
     category: 'Technology',
     readTime: '5 min read',
-    image: '/images/blog/ai-development.jpg'
+    image: '/images/aidevelopment.jpg'
   },
   {
     title: 'Building Scalable Cloud Infrastructure',

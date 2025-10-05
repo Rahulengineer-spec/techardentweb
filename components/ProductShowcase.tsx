@@ -16,7 +16,7 @@ const products = [
       'Role-based Access Control',
       'API Integration Hub'
     ],
-    image: '/images/products/enterprise.jpg',
+    image: '/images/enterprises.png',
     color: 'from-blue-500/20 to-blue-600/20'
   },
   {
@@ -28,7 +28,7 @@ const products = [
       'Automated Billing',
       'Multi-tenant Architecture'
     ],
-    image: '/images/products/saas.jpg',
+    image: '/images/saas.png',
     color: 'from-purple-500/20 to-purple-600/20'
   },
   {
@@ -40,7 +40,7 @@ const products = [
       'Push Notifications',
       'Biometric Authentication'
     ],
-    image: '/images/products/mobile.jpg',
+    image: '/images/mobile.jpg',
     color: 'from-green-500/20 to-green-600/20'
   }
 ]

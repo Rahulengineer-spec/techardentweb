@@ -7,7 +7,7 @@ import { ChevronDown } from 'lucide-react'
 interface FAQItem {
   question: string
   answer: string
-  category: 'process' | 'pricing' | 'quality' | 'support'
+  category: 'process' | 'quality' | 'support'
 }
 
 const faqData: FAQItem[] = [
@@ -20,11 +20,6 @@ const faqData: FAQItem[] = [
     question: "What is your development process like?",
     answer: "We follow an agile development methodology that keeps you involved at every step. The process starts with a detailed discovery phase where we understand your requirements, followed by regular sprints with weekly demos and feedback sessions. This approach ensures transparency and allows for adjustments as needed. You'll have access to a dedicated project manager and regular progress updates.",
     category: 'process'
-  },
-  {
-    question: "How do you handle project pricing and budgets?",
-    answer: "We believe in transparent pricing with no hidden costs. After understanding your requirements, we provide a detailed quote that breaks down all costs. We offer flexible engagement models - fixed price for well-defined projects and time & materials for evolving requirements. We also provide regular budget updates and won't proceed with any additional work without your approval.",
-    category: 'pricing'
   },
   {
     question: "What happens after the project is completed?",

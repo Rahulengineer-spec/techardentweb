@@ -11,7 +11,6 @@ import type { AuthChangeEvent, Session } from '@supabase/supabase-js'
 const navItems = [
   { name: 'Product', href: '#product' },
   { name: 'Features', href: '#features' },
-  { name: 'Pricing', href: '#pricing' },
   { name: 'Resources', href: '#resources' },
 ]
 
@@ -154,9 +153,6 @@ export function Navbar() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link href="/features" className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 block px-3 py-2 rounded-md text-base font-medium">
                 Features
-              </Link>
-              <Link href="/pricing" className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 block px-3 py-2 rounded-md text-base font-medium">
-                Pricing
               </Link>
               <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 block px-3 py-2 rounded-md text-base font-medium">
                 Blog

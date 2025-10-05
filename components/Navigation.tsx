@@ -172,14 +172,6 @@ export function Navigation() {
               </div>
             </div>
 
-            {/* Direct Links */}
-            <Link
-              href="/pricing"
-              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
-            >
-              Pricing
-            </Link>
-
             {/* Donate Button */}
             <Link
               href="/donate"
