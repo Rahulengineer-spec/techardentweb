@@ -31,10 +31,28 @@ const companyLinks = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null)
 
-  // Dropdown opens on mouse enter, closes on mouse leave
-  const openDropdown = (name: string) => setActiveDropdown(name)
-  const closeDropdown = () => setActiveDropdown(null)
+  // Timer-based open/close for dropdown
+  const openDropdown = (name: string) => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout)
+      setDropdownTimeout(null)
+    }
+    setActiveDropdown(name)
+  }
+  const delayedCloseDropdown = () => {
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null)
+    }, 150)
+    setDropdownTimeout(timeout)
+  }
+  const cancelCloseDropdown = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout)
+      setDropdownTimeout(null)
+    }
+  }
 
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
@@ -53,91 +71,106 @@ export function Navigation() {
             {/* Product Dropdown */}
             <div className="relative"
               onMouseEnter={() => openDropdown('product')}
-              onMouseLeave={closeDropdown}
+              onMouseLeave={delayedCloseDropdown}
             >
-              <button
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
-                tabIndex={0}
-              >
-                Product
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {activeDropdown === 'product' && (
-                <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    {productLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        onClick={closeDropdown}
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+              <div>
+                <button
+                  className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                  tabIndex={0}
+                >
+                  Product
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                {activeDropdown === 'product' && (
+                  <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
+                    onMouseEnter={cancelCloseDropdown}
+                    onMouseLeave={delayedCloseDropdown}
+                  >
+                    <div className="py-1">
+                      {productLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          href={link.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* Resources Dropdown */}
             <div className="relative"
               onMouseEnter={() => openDropdown('resources')}
-              onMouseLeave={closeDropdown}
+              onMouseLeave={delayedCloseDropdown}
             >
-              <button
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
-                tabIndex={0}
-              >
-                Resources
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {activeDropdown === 'resources' && (
-                <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    {resourceLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        onClick={closeDropdown}
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+              <div>
+                <button
+                  className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                  tabIndex={0}
+                >
+                  Resources
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                {activeDropdown === 'resources' && (
+                  <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
+                    onMouseEnter={cancelCloseDropdown}
+                    onMouseLeave={delayedCloseDropdown}
+                  >
+                    <div className="py-1">
+                      {resourceLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          href={link.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* Company Dropdown */}
             <div className="relative"
               onMouseEnter={() => openDropdown('company')}
-              onMouseLeave={closeDropdown}
+              onMouseLeave={delayedCloseDropdown}
             >
-              <button
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
-                tabIndex={0}
-              >
-                Company
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {activeDropdown === 'company' && (
-                <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    {companyLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        onClick={closeDropdown}
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+              <div>
+                <button
+                  className="flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                  tabIndex={0}
+                >
+                  Company
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                {activeDropdown === 'company' && (
+                  <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
+                    onMouseEnter={cancelCloseDropdown}
+                    onMouseLeave={delayedCloseDropdown}
+                  >
+                    <div className="py-1">
+                      {companyLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          href={link.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* Direct Links */}
