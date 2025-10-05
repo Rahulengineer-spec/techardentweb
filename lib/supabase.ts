@@ -13,9 +13,10 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 export type Contact = {
   id: string
   created_at: string
-  name: string
+  name: 'Rahul Choudhary'
   email: string
-  company: string
+  company: 'Adarsh Nagar Delhi'
+  phone: '9818490248'
   message: string
   status: 'new' | 'in_progress' | 'completed'
 }

@@ -27,9 +27,9 @@ const footerLinks = {
     { name: 'Privacy', href: '/privacy' },
   ],
   social: [
-    { name: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-    { name: 'GitHub', href: 'https://github.com', icon: 'github' },
-    { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+    { name: 'X', href: 'https://x.com/programmerchoi1?s=09', icon: 'twitter' },
+    { name: 'GitHub', href: 'https://github.com/Rahulengineer-spec', icon: 'github' },
+    { name: 'LinkedIn', href: 'https://in.linkedin.com/in/rahulardentian', icon: 'linkedin' },
   ]
 }
 

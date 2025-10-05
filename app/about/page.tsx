@@ -5,10 +5,8 @@ import { Users, Target, Award, Heart } from 'lucide-react'
 import { AnimatedCounter } from '@/components/AnimatedCounter'
 
 const stats = [
-	{ label: 'Team Members', value: '50+' },
-	{ label: 'Countries', value: '10+' },
-	{ label: 'Clients', value: '1000+' },
-	{ label: 'Projects', value: '500+' },
+	{ label: 'Team Members', value: '12+' },
+	{ label: 'Projects', value: '30+' },
 ]
 
 const values = [

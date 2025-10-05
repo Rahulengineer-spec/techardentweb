@@ -12,43 +12,20 @@ import {
 
 const offices = [
   {
-    city: 'Delhi - Adarsh Nagar',
-    address: 'Adarsh Nagar, New Delhi, DL 110033',
-    phone: '+91 9818490248',
-    email: 'adarshnagar@techardent.com',
-    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST'
-  },
-  {
-    city: 'Delhi - Shalimar Bagh',
-    address: 'Shalimar Bagh, New Delhi, DL 110088',
-    phone: '+91 9818000001',
-    email: 'shalimarbagh@techardent.com',
-    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST'
-  },
-  {
-    city: 'Delhi - Pitampura',
-    address: 'Pitampura, New Delhi, DL 110034',
-    phone: '+91 9818000002',
-    email: 'pitampura@techardent.com',
-    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST'
+    city: 'Adarsh Nagar, Delhi',
+    address: 'Adarsh Nagar Delhi',
+    phone: '9818490248',
+    email: 'rahul.choudhary@techardent.com',
+    hours: 'Mon-Fri, 9:00 AM - 6:00 PM IST',
+    name: 'Rahul Choudhary'
   }
 ]
 
 const departments = [
   {
-    name: 'Sales',
-    email: 'sales.in@techardent.com',
-    phone: '+91 90000 11122'
-  },
-  {
-    name: 'Support',
-    email: 'support.in@techardent.com',
-    phone: '+91 90000 22233'
-  },
-  {
-    name: 'Partnerships',
-    email: 'partners.in@techardent.com',
-    phone: '+91 90000 33344'
+    name: 'Rahul Choudhary',
+    email: 'rahul.choudhary@techardent.com',
+    phone: '9818490248'
   }
 ]
 
